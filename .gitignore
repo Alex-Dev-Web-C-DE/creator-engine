@@ -3,5 +3,4 @@ node_modules/
 .env.local
 *.log
 dist/
-reports/*.json
-!reports/.gitkeep
+benchmarks/promise-alignment/v0/reports/
