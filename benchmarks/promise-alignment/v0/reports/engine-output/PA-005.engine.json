@@ -1,0 +1,38 @@
+{
+  "case_id": "PA-005",
+  "category": "MISSING",
+  "promises": [
+    {
+      "promise_id": 1,
+      "type": "report frequency",
+      "status": "EXPLICIT_COMMITMENT",
+      "statement": "You'll receive weekly performance reports every Monday.",
+      "source": "Sales",
+      "evidence": "Salesperson explicitly stated the frequency and timing of reports."
+    }
+  ],
+  "terms": [
+    {
+      "term_id": "TERM-001",
+      "type": "DELIVERABLE",
+      "statement": "provide performance reports to Client",
+      "source": "contract_text",
+      "evidence": "Vendor shall provide performance reports to Client.",
+      "section_reference": "6.3"
+    }
+  ],
+  "alignments": [
+    {
+      "alignment_id": 1,
+      "promise_id": 1,
+      "term_id": "TERM-001",
+      "relationship": "PARTIAL",
+      "status": "PARTIALLY_MATCHED",
+      "confidence": "HIGH",
+      "reasoning": "The contract states that performance reports will be provided, but it does not specify the frequency (weekly) or the timing (every Monday) as mentioned in the promise.",
+      "impact": null
+    }
+  ],
+  "invariant_violations": [],
+  "engine_version": "0.3.0"
+}

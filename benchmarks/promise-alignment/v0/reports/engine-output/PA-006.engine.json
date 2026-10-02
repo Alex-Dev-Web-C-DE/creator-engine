@@ -1,0 +1,38 @@
+{
+  "case_id": "PA-006",
+  "category": "MISSING",
+  "promises": [
+    {
+      "promise_id": 1,
+      "type": "integration",
+      "status": "EXPLICIT_COMMITMENT",
+      "statement": "we have native HubSpot integration",
+      "source": "Sales",
+      "evidence": "Sales confirmed the integration feature"
+    }
+  ],
+  "terms": [
+    {
+      "term_id": "TERM-001",
+      "type": "DELIVERABLE",
+      "statement": "provide the SaaS platform as described in the product documentation",
+      "source": "contract_text",
+      "evidence": "Vendor shall provide the SaaS platform as described in the product documentation.",
+      "section_reference": "2.1"
+    }
+  ],
+  "alignments": [
+    {
+      "alignment_id": "ALIGN-001",
+      "promise_id": 1,
+      "term_id": "TERM-001",
+      "relationship": "MISSING",
+      "status": "UNMATCHED",
+      "confidence": "low",
+      "reasoning": "The promise of native HubSpot integration is not mentioned in the contract terms.",
+      "impact": null
+    }
+  ],
+  "invariant_violations": [],
+  "engine_version": "0.3.0"
+}

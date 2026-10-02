@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://boring-saas-infra.pages.dev/schemas/evidence.schema.json",
+  "title": "Evidence",
+  "description": "A pointer to a specific span in a source document supporting a finding",
+  "type": "object",
+  "required": ["evidence_id", "source_document", "source_text", "char_start", "char_end"],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^EVID-[0-9]{3}$"
+    },
+    "source_document": {
+      "type": "string",
+      "enum": ["sales_conversation", "contract_text", "email", "sow", "exhibit", "other"],
+      "description": "Which document the evidence is from"
+    },
+    "source_text": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Exact quote from source (verifiable)"
+    },
+    "char_start": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Start position in source text (0-indexed)"
+    },
+    "char_end": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "End position in source text (exclusive)"
+    },
+    "supports": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["PROMISE", "CONTRACT_TERM", "ALIGNMENT", "IMPACT"]
+      },
+      "description": "What this evidence supports"
+    },
+    "supports_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "IDs of objects this evidence supports (PROM-XXX, TERM-XXX, ALIGN-XXX)"
+    },
+    "epistemic_level": {
+      "type": "string",
+      "enum": ["OBSERVED", "CALCULATED", "INFERRED", "HYPOTHESIZED", "SUGGESTED"],
+      "default": "OBSERVED"
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  },
+  "allOf": [
+    {
+      "description": "INV-003: source_text must exist within the source document (validated at runtime, not in schema)",
+      "properties": {
+        "source_text": {
+          "minLength": 5,
+          "maxLength": 5000
+        }
+      }
+    }
+  ]
+}

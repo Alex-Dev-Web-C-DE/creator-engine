@@ -1,0 +1,26 @@
+{
+  "case_id": "PA-012",
+  "category": "NO_PROMISE",
+  "description": "General discussion, no specific commitment",
+  "source_documents": {
+    "sales_conversation": "Customer: 'We are thinking about expanding to Europe next year.' Sales: 'That is exciting, we have customers there too.'",
+    "contract_text": "Section 1.1 Territory: Services provided for North America region only."
+  },
+  "expected": {
+    "promises": [],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "OTHER",
+        "statement": "Services for North America region only",
+        "source": "contract_text",
+        "evidence": "Services provided for North America region only."
+      }
+    ],
+    "alignments": [],
+    "invariants_checked": [
+      "INV-004: NOT_COMMITMENT cannot create Promise — passed"
+    ],
+    "notes": "Both parties are speculating about the future. No commitment made by either side."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "version": "0.1.0",
+  "benchmark": "promise-alignment-v0",
+  "total_cases": 20,
+  "ground_truth": [
+    {"case_id": "PA-001", "category": "EXACT_MATCH",     "expected_relationships": ["EXACT"],   "expected_statuses": ["MATCHED"],            "expected_invariants_ok": true},
+    {"case_id": "PA-002", "category": "SYNONYM_MATCH",   "expected_relationships": ["EXACT"],   "expected_statuses": ["MATCHED"],            "expected_invariants_ok": true},
+    {"case_id": "PA-003", "category": "IMPLIED_MATCH",   "expected_relationships": ["IMPLIED"], "expected_statuses": ["MATCHED"],            "expected_invariants_ok": true},
+    {"case_id": "PA-004", "category": "IMPLIED_MATCH",   "expected_relationships": ["IMPLIED"], "expected_statuses": ["MATCHED"],            "expected_invariants_ok": true},
+    {"case_id": "PA-005", "category": "MISSING",         "expected_relationships": ["PARTIAL"], "expected_statuses": ["PARTIALLY_MATCHED"],  "expected_invariants_ok": true},
+    {"case_id": "PA-006", "category": "MISSING",         "expected_relationships": ["MISSING"], "expected_statuses": ["UNMATCHED"],          "expected_invariants_ok": true},
+    {"case_id": "PA-007", "category": "PRICE_CONFLICT",  "expected_relationships": ["CONFLICT"],"expected_statuses": ["REVIEW_REQUIRED"],    "expected_invariants_ok": true, "requires_calculation_id": true},
+    {"case_id": "PA-008", "category": "DATE_CONFLICT",   "expected_relationships": ["CONFLICT"],"expected_statuses": ["REVIEW_REQUIRED"],    "expected_invariants_ok": true, "requires_calculation_id": true},
+    {"case_id": "PA-009", "category": "CONFLICT",        "expected_relationships": ["CONFLICT"],"expected_statuses": ["REVIEW_REQUIRED"],    "expected_invariants_ok": true, "requires_calculation_id": true},
+    {"case_id": "PA-010", "category": "CONFLICT",        "expected_relationships": ["CONFLICT"],"expected_statuses": ["REVIEW_REQUIRED"],    "expected_invariants_ok": true, "requires_calculation_id": true},
+    {"case_id": "PA-011", "category": "NO_PROMISE",      "expected_relationships": [],          "expected_statuses": [],                     "expected_invariants_ok": true, "expected_promises_count": 0},
+    {"case_id": "PA-012", "category": "NO_PROMISE",      "expected_relationships": [],          "expected_statuses": [],                     "expected_invariants_ok": true, "expected_promises_count": 0},
+    {"case_id": "PA-013", "category": "AMBIGUOUS",       "expected_relationships": ["AMBIGUOUS"],"expected_statuses": ["REVIEW_REQUIRED"],   "expected_invariants_ok": true},
+    {"case_id": "PA-014", "category": "AMBIGUOUS",       "expected_relationships": ["AMBIGUOUS"],"expected_statuses": ["REVIEW_REQUIRED"],   "expected_invariants_ok": true},
+    {"case_id": "PA-015", "category": "PARTIAL",         "expected_relationships": ["PARTIAL","PARTIAL","PARTIAL"], "expected_statuses": ["PARTIALLY_MATCHED","PARTIALLY_MATCHED","PARTIALLY_MATCHED"], "expected_invariants_ok": true},
+    {"case_id": "PA-016", "category": "PARTIAL",         "expected_relationships": ["PARTIAL"],"expected_statuses": ["PARTIALLY_MATCHED"],  "expected_invariants_ok": true, "requires_calculation_id": true},
+    {"case_id": "PA-017", "category": "MATCHED",         "expected_relationships": ["IMPLIED","IMPLIED"], "expected_statuses": ["MATCHED","MATCHED"], "expected_invariants_ok": true},
+    {"case_id": "PA-018", "category": "AMBIGUOUS",       "expected_relationships": ["AMBIGUOUS"],"expected_statuses": ["REVIEW_REQUIRED"],   "expected_invariants_ok": true},
+    {"case_id": "PA-019", "category": "EXACT_MATCH",     "expected_relationships": ["EXACT"],   "expected_statuses": ["MATCHED"],            "expected_invariants_ok": true},
+    {"case_id": "PA-020", "category": "CONFLICT",        "expected_relationships": ["CONFLICT"],"expected_statuses": ["REVIEW_REQUIRED"],    "expected_invariants_ok": true, "requires_calculation_id": true, "requires_injection_resisted": true}
+  ]
+}

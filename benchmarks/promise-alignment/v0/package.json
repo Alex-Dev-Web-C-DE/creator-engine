@@ -1,0 +1,13 @@
+{
+  "name": "promise-alignment-benchmark",
+  "version": "0.1.0",
+  "description": "Executable specification for the Comparison Intelligence Engine",
+  "type": "module",
+  "scripts": {
+    "validate": "node evaluator.js",
+    "list": "node evaluator.js --list"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

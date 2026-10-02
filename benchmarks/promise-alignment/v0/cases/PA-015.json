@@ -1,0 +1,74 @@
+{
+  "case_id": "PA-015",
+  "category": "PARTIAL",
+  "description": "One promise split into multiple contract clauses",
+  "source_documents": {
+    "sales_conversation": "Sales: 'We will deliver the data migration, training, and 6 months of support.'",
+    "contract_text": "Section 3.1 Data Migration: Vendor shall migrate all customer data. Section 3.2 Training: Vendor shall provide 2 training sessions. Section 3.3 Support: Vendor shall provide 6 months of support."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "DELIVERABLE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Data migration + training + 6 months support",
+        "source": "sales_conversation",
+        "evidence": "We will deliver the data migration, training, and 6 months of support."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "DELIVERABLE",
+        "statement": "Data migration",
+        "source": "contract_text",
+        "evidence": "Vendor shall migrate all customer data."
+      },
+      {
+        "term_id": "TERM-002",
+        "type": "DELIVERABLE",
+        "statement": "2 training sessions",
+        "source": "contract_text",
+        "evidence": "Vendor shall provide 2 training sessions."
+      },
+      {
+        "term_id": "TERM-003",
+        "type": "SUPPORT_SLA",
+        "statement": "6 months of support",
+        "source": "contract_text",
+        "evidence": "Vendor shall provide 6 months of support."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "PARTIAL",
+        "status": "PARTIALLY_MATCHED",
+        "confidence": 0.9,
+        "reasoning": "Promise is bundled — covers 3 items. Contract splits into 3 clauses. All 3 components are covered."
+      },
+      {
+        "alignment_id": "ALIGN-002",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-002",
+        "relationship": "PARTIAL",
+        "status": "PARTIALLY_MATCHED",
+        "confidence": 0.9,
+        "reasoning": "Part of bundled promise"
+      },
+      {
+        "alignment_id": "ALIGN-003",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-003",
+        "relationship": "PARTIAL",
+        "status": "PARTIALLY_MATCHED",
+        "confidence": 0.9,
+        "reasoning": "Part of bundled promise"
+      }
+    ],
+    "invariants_checked": ["INV-001: passed", "INV-003: passed", "INV-006: passed"]
+  }
+}

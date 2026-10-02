@@ -1,0 +1,48 @@
+{
+  "case_id": "PA-009",
+  "category": "CONFLICT",
+  "description": "Sales promised 5 seats, contract says 3",
+  "source_documents": {
+    "sales_conversation": "Customer: 'How many users can we have?' Sales: 'You get 5 user seats.'",
+    "contract_text": "Section 4.1 Licenses: Client is granted 3 named user licenses."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "QUANTITY",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "5 user seats",
+        "source": "sales_conversation",
+        "evidence": "You get 5 user seats."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "QUANTITY",
+        "statement": "3 named user licenses",
+        "source": "contract_text",
+        "evidence": "Client is granted 3 named user licenses."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "CONFLICT",
+        "status": "REVIEW_REQUIRED",
+        "confidence": 0.98,
+        "reasoning": "Sales promised 5 seats, contract grants 3. Difference of 2 seats.",
+        "impact": {
+          "type": "QUANTITY",
+          "unit_delta": 2,
+          "direction": "customer_gets_fewer",
+          "calculation_id": "CALC-PA-009-001"
+        }
+      }
+    ],
+    "invariants_checked": ["INV-001: passed", "INV-002: passed", "INV-003: passed", "INV-006: passed"]
+  }
+}

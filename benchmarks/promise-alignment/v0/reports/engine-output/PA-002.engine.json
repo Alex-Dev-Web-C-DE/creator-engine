@@ -1,0 +1,38 @@
+{
+  "case_id": "PA-002",
+  "category": "SYNONYM_MATCH",
+  "promises": [
+    {
+      "promise_id": 1,
+      "type": "mobile app",
+      "status": "EXPLICIT_COMMITMENT",
+      "statement": "we're building the iOS and Android mobile applications for you",
+      "source": "Sales",
+      "evidence": "Salesperson's assurance of building mobile applications"
+    }
+  ],
+  "terms": [
+    {
+      "term_id": "TERM-001",
+      "type": "DELIVERABLE",
+      "statement": "deliver native applications for iOS and Android platforms",
+      "source": "contract_text",
+      "evidence": "Vendor will deliver native applications for iOS and Android platforms.",
+      "section_reference": "Exhibit A"
+    }
+  ],
+  "alignments": [
+    {
+      "alignment_id": "ALIGN-001",
+      "promise_id": 1,
+      "term_id": "TERM-001",
+      "relationship": "EXACT",
+      "status": "MATCHED",
+      "confidence": "HIGH",
+      "reasoning": "The promise of building mobile applications is semantically identical to the term of delivering native applications for iOS and Android platforms.",
+      "impact": null
+    }
+  ],
+  "invariant_violations": [],
+  "engine_version": "0.3.0"
+}

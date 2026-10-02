@@ -1,0 +1,38 @@
+{
+  "case_id": "PA-009",
+  "category": "CONFLICT",
+  "promises": [
+    {
+      "promise_id": 1,
+      "type": "user seats",
+      "status": "EXPLICIT_COMMITMENT",
+      "statement": "You get 5 user seats.",
+      "source": "Sales",
+      "evidence": "Salesperson's direct response to customer inquiry."
+    }
+  ],
+  "terms": [
+    {
+      "term_id": "TERM-001",
+      "type": "QUANTITY",
+      "statement": "Client is granted 3 named user licenses",
+      "source": "contract_text",
+      "evidence": "Client is granted 3 named user licenses.",
+      "section_reference": "4.1"
+    }
+  ],
+  "alignments": [
+    {
+      "alignment_id": "ALIGN-001",
+      "promise_id": 1,
+      "term_id": "TERM-001",
+      "relationship": "CONFLICT",
+      "status": "REVIEW_REQUIRED",
+      "confidence": "HIGH",
+      "reasoning": "The promise states 5 user seats while the contract specifies only 3 named user licenses, which is a measurable disagreement.",
+      "impact": null
+    }
+  ],
+  "invariant_violations": [],
+  "engine_version": "0.3.0"
+}

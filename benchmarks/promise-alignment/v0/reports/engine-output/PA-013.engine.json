@@ -1,0 +1,38 @@
+{
+  "case_id": "PA-013",
+  "category": "AMBIGUOUS",
+  "promises": [
+    {
+      "promise_id": 1,
+      "type": "scalability",
+      "status": "TENTATIVE",
+      "statement": "We should be able to scale to that, probably.",
+      "source": "Sales",
+      "evidence": "Salesperson's statement about scaling capabilities."
+    }
+  ],
+  "terms": [
+    {
+      "term_id": "TERM-001",
+      "type": "OTHER",
+      "statement": "Service includes capacity as specified in Exhibit A",
+      "source": "contract_text",
+      "evidence": "The Service includes capacity as specified in Exhibit A.",
+      "section_reference": "4.1"
+    }
+  ],
+  "alignments": [
+    {
+      "alignment_id": "ALIGN-001",
+      "promise_id": 1,
+      "term_id": "TERM-001",
+      "relationship": "AMBIGUOUS",
+      "status": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "reasoning": "The promise about scalability is tentative and subjective ('probably'), while the contract term refers to capacity in a specific exhibit, making it unclear how they relate.",
+      "impact": null
+    }
+  ],
+  "invariant_violations": [],
+  "engine_version": "0.3.0"
+}

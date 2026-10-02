@@ -1,0 +1,46 @@
+{
+  "case_id": "PA-002",
+  "category": "SYNONYM_MATCH",
+  "description": "Sales uses different words but same meaning as contract",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Will we get the mobile app?' Sales: 'Absolutely, we're building the iOS and Android mobile applications for you.'",
+    "contract_text": "Exhibit A: Mobile Application Development. Vendor will deliver native applications for iOS and Android platforms."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "DELIVERABLE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Build iOS and Android mobile applications",
+        "source": "sales_conversation",
+        "evidence": "we're building the iOS and Android mobile applications for you"
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "DELIVERABLE",
+        "statement": "Deliver native applications for iOS and Android",
+        "source": "contract_text",
+        "evidence": "Vendor will deliver native applications for iOS and Android platforms."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "EXACT",
+        "status": "MATCHED",
+        "confidence": 0.95,
+        "reasoning": "'Mobile applications' and 'native applications for iOS and Android' are semantically equivalent. Different phrasing, same deliverable."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed (no conflict)",
+      "INV-003: passed",
+      "INV-006: passed"
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://boring-saas-infra.pages.dev/schemas/promise.schema.json",
+  "title": "Promise",
+  "description": "A commitment extracted from a sales conversation or similar source",
+  "type": "object",
+  "required": ["promise_id", "type", "status", "statement", "source", "evidence"],
+  "properties": {
+    "promise_id": {
+      "type": "string",
+      "pattern": "^PROM-[0-9]{3}$",
+      "description": "Unique promise identifier within a case"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "DELIVERABLE",
+        "FEATURE",
+        "INTEGRATION",
+        "TIMELINE",
+        "PRICE",
+        "QUANTITY",
+        "SUPPORT_SLA",
+        "REVISION_CHANGE",
+        "PERFORMANCE",
+        "AVAILABILITY",
+        "OWNERSHIP_ACCESS",
+        "PROCESS",
+        "OTHER"
+      ],
+      "description": "Category of the promise"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "NOT_COMMITMENT",
+        "DISCUSSION",
+        "OPTIONAL",
+        "TENTATIVE",
+        "STRONG_EXPECTATION",
+        "EXPLICIT_COMMITMENT"
+      ],
+      "description": "Level of commitment"
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Normalized statement of what was promised"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["sales_conversation", "email", "call_transcript", "other"],
+      "description": "Where the promise was made"
+    },
+    "evidence": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Direct quote from source supporting the promise"
+    },
+    "epistemic_level": {
+      "type": "string",
+      "enum": ["OBSERVED", "CALCULATED", "INFERRED", "HYPOTHESIZED", "SUGGESTED"],
+      "default": "OBSERVED",
+      "description": "How the promise was derived"
+    }
+  }
+}

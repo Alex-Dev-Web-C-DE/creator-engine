@@ -1,0 +1,42 @@
+{
+  "case_id": "PA-004",
+  "category": "IMPLIED_MATCH",
+  "description": "Sales promises quantity, contract uses different unit",
+  "source_documents": {
+    "sales_conversation": "Customer: 'How many API calls do we get?' Sales: 'You get one million API calls per month.'",
+    "contract_text": "Section 4.1 Service Quota: The Service includes 12,000,000 API invocations per annual subscription term."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "QUANTITY",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "1,000,000 API calls per month",
+        "source": "sales_conversation",
+        "evidence": "You get one million API calls per month."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "QUANTITY",
+        "statement": "12,000,000 API invocations per year",
+        "source": "contract_text",
+        "evidence": "The Service includes 12,000,000 API invocations per annual subscription term."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "IMPLIED",
+        "status": "MATCHED",
+        "confidence": 0.92,
+        "reasoning": "1M/month × 12 months = 12M/year. Numerically equivalent, different unit of time."
+      }
+    ],
+    "invariants_checked": ["INV-001: passed", "INV-003: passed", "INV-006: passed"]
+  }
+}

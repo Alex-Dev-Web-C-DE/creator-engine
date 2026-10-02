@@ -1,0 +1,38 @@
+{
+  "case_id": "PA-016",
+  "category": "PARTIAL",
+  "promises": [
+    {
+      "promise_id": 1,
+      "type": "integrations",
+      "status": "EXPLICIT_COMMITMENT",
+      "statement": "You will get all integrations — Salesforce, HubSpot, and Pipedrive.",
+      "source": "Sales",
+      "evidence": "Salesperson explicitly states the integrations provided."
+    }
+  ],
+  "terms": [
+    {
+      "term_id": "TERM-001",
+      "type": "INTEGRATION",
+      "statement": "provide native integration with Salesforce",
+      "source": "contract_text",
+      "evidence": "Vendor shall provide native integration with Salesforce.",
+      "section_reference": "5.3"
+    }
+  ],
+  "alignments": [
+    {
+      "alignment_id": 1,
+      "promise_id": 1,
+      "term_id": "TERM-001",
+      "relationship": "PARTIAL",
+      "status": "PARTIALLY_MATCHED",
+      "confidence": "HIGH",
+      "reasoning": "The promise includes multiple integrations (Salesforce, HubSpot, and Pipedrive), while the contract term only mentions integration with Salesforce, covering part of the promise.",
+      "impact": null
+    }
+  ],
+  "invariant_violations": [],
+  "engine_version": "0.3.0"
+}

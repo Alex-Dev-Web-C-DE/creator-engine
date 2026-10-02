@@ -1,0 +1,54 @@
+{
+  "case_id": "PA-007",
+  "category": "PRICE_CONFLICT",
+  "description": "Sales quoted $50K, contract says $75K",
+  "source_documents": {
+    "sales_conversation": "Customer: 'What is the total cost?' Sales: 'The project will be $50,000 all-in.'",
+    "contract_text": "Section 8.1 Fees: Total project fee shall be Seventy-Five Thousand US Dollars ($75,000)."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "PRICE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "$50,000 all-in project cost",
+        "source": "sales_conversation",
+        "evidence": "The project will be $50,000 all-in."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "PRICE",
+        "statement": "$75,000 project fee",
+        "source": "contract_text",
+        "evidence": "Total project fee shall be Seventy-Five Thousand US Dollars ($75,000)."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "CONFLICT",
+        "status": "REVIEW_REQUIRED",
+        "confidence": 0.99,
+        "reasoning": "Sales quoted $50K, contract states $75K. 50% discrepancy. Same deliverable, different price.",
+        "impact": {
+          "type": "FINANCIAL",
+          "amount": 25000,
+          "currency": "USD",
+          "direction": "customer_pays_more",
+          "calculation_id": "CALC-PA-007-001"
+        }
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: CONFLICT requires evidence — passed",
+      "INV-002: financial.amount requires calculation_id — passed",
+      "INV-003: passed",
+      "INV-006: passed"
+    ]
+  }
+}

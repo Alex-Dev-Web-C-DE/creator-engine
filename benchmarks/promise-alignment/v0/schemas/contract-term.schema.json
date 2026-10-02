@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://boring-saas-infra.pages.dev/schemas/contract-term.schema.json",
+  "title": "ContractTerm",
+  "description": "A clause or term extracted from a contract or SOW",
+  "type": "object",
+  "required": ["term_id", "type", "statement", "source", "evidence"],
+  "properties": {
+    "term_id": {
+      "type": "string",
+      "pattern": "^TERM-[0-9]{3}$",
+      "description": "Unique contract term identifier within a case"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "DELIVERABLE",
+        "FEATURE",
+        "INTEGRATION",
+        "TIMELINE",
+        "PRICE",
+        "QUANTITY",
+        "SUPPORT_SLA",
+        "REVISION_CHANGE",
+        "PERFORMANCE",
+        "AVAILABILITY",
+        "OWNERSHIP_ACCESS",
+        "PROCESS",
+        "OTHER"
+      ],
+      "description": "Category of the contract term"
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Normalized statement of the contract obligation"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["contract_text", "sow", "exhibit", "amendment", "other"],
+      "description": "Where the term was found"
+    },
+    "evidence": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Direct quote from source supporting the term"
+    },
+    "section_reference": {
+      "type": ["string", "null"],
+      "description": "Section number or clause ID, if present"
+    },
+    "effective_date": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "When the term takes effect (YYYY-MM-DD)"
+    },
+    "epistemic_level": {
+      "type": "string",
+      "enum": ["OBSERVED", "CALCULATED", "INFERRED", "HYPOTHESIZED", "SUGGESTED"],
+      "default": "OBSERVED"
+    }
+  }
+}

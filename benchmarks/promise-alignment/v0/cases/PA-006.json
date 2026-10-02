@@ -1,0 +1,34 @@
+{
+  "case_id": "PA-006",
+  "category": "MISSING",
+  "description": "Sales promised HubSpot integration, contract has no mention",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Does it integrate with HubSpot?' Sales: 'Yes, we have native HubSpot integration.'",
+    "contract_text": "Section 2.1 Scope: Vendor shall provide the SaaS platform as described in the product documentation."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "INTEGRATION",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Native HubSpot integration",
+        "source": "sales_conversation",
+        "evidence": "Yes, we have native HubSpot integration."
+      }
+    ],
+    "contract_terms": [],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": null,
+        "relationship": "MISSING",
+        "status": "UNMATCHED",
+        "confidence": 0.95,
+        "reasoning": "No contract clause references HubSpot or integrations. Promise is unbacked by contract."
+      }
+    ],
+    "invariants_checked": ["INV-001: passed", "INV-003: passed", "INV-006: passed"]
+  }
+}

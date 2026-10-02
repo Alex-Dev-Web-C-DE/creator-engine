@@ -1,0 +1,38 @@
+{
+  "case_id": "PA-014",
+  "category": "AMBIGUOUS",
+  "promises": [
+    {
+      "promise_id": 1,
+      "type": "speed",
+      "status": "TENTATIVE",
+      "statement": "It will be really fast.",
+      "source": "Sales",
+      "evidence": "Salesperson's assurance about speed"
+    }
+  ],
+  "terms": [
+    {
+      "term_id": "TERM-001",
+      "type": "PERFORMANCE",
+      "statement": "Response time shall be adequate for typical use",
+      "source": "contract_text",
+      "evidence": "Response time shall be adequate for typical use.",
+      "section_reference": "7.2"
+    }
+  ],
+  "alignments": [
+    {
+      "alignment_id": 1,
+      "promise_id": 1,
+      "term_id": "TERM-001",
+      "relationship": "AMBIGUOUS",
+      "status": "REVIEW_REQUIRED",
+      "confidence": "LOW",
+      "reasoning": "The promise of 'really fast' is subjective and does not provide a measurable standard, while the term 'adequate for typical use' is also vague. Both statements are open to interpretation, making it impossible to determine a clear alignment.",
+      "impact": null
+    }
+  ],
+  "invariant_violations": [],
+  "engine_version": "0.3.0"
+}

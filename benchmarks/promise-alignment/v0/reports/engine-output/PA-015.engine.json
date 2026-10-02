@@ -1,0 +1,74 @@
+{
+  "case_id": "PA-015",
+  "category": "PARTIAL",
+  "promises": [
+    {
+      "promise_id": 1,
+      "type": "data migration, training, and support",
+      "status": "EXPLICIT_COMMITMENT",
+      "statement": "We will deliver the data migration, training, and 6 months of support.",
+      "source": "Sales",
+      "evidence": "Salesperson's statement"
+    }
+  ],
+  "terms": [
+    {
+      "term_id": "TERM-001",
+      "type": "DELIVERABLE",
+      "statement": "migrate all customer data",
+      "source": "contract_text",
+      "evidence": "Vendor shall migrate all customer data.",
+      "section_reference": "3.1"
+    },
+    {
+      "term_id": "TERM-002",
+      "type": "DELIVERABLE",
+      "statement": "provide 2 training sessions",
+      "source": "contract_text",
+      "evidence": "Vendor shall provide 2 training sessions.",
+      "section_reference": "3.2"
+    },
+    {
+      "term_id": "TERM-003",
+      "type": "SUPPORT_SLA",
+      "statement": "provide 6 months of support",
+      "source": "contract_text",
+      "evidence": "Vendor shall provide 6 months of support.",
+      "section_reference": "3.3"
+    }
+  ],
+  "alignments": [
+    {
+      "alignment_id": "ALIGN-001",
+      "promise_id": 1,
+      "term_id": "TERM-001",
+      "relationship": "PARTIAL",
+      "status": "PARTIALLY_MATCHED",
+      "confidence": "HIGH",
+      "reasoning": "The promise includes data migration, but the term specifies migrating all customer data, which is a subset of the promise.",
+      "impact": null
+    },
+    {
+      "alignment_id": "ALIGN-002",
+      "promise_id": 1,
+      "term_id": "TERM-002",
+      "relationship": "PARTIAL",
+      "status": "PARTIALLY_MATCHED",
+      "confidence": "HIGH",
+      "reasoning": "The promise mentions training but does not specify the number of training sessions, while the term specifies 2 training sessions.",
+      "impact": null
+    },
+    {
+      "alignment_id": "ALIGN-003",
+      "promise_id": 1,
+      "term_id": "TERM-003",
+      "relationship": "EXACT",
+      "status": "MATCHED",
+      "confidence": "HIGH",
+      "reasoning": "The promise and term both explicitly state 6 months of support.",
+      "impact": null
+    }
+  ],
+  "invariant_violations": [],
+  "engine_version": "0.3.0"
+}

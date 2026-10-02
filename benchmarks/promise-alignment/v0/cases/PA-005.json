@@ -1,0 +1,42 @@
+{
+  "case_id": "PA-005",
+  "category": "MISSING",
+  "description": "Sales promised weekly reports, contract mentions reports but no frequency",
+  "source_documents": {
+    "sales_conversation": "Customer: 'How often do we get reports?' Sales: 'You'll receive weekly performance reports every Monday.'",
+    "contract_text": "Section 6.3 Reporting: Vendor shall provide performance reports to Client."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "PROCESS",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Weekly performance reports every Monday",
+        "source": "sales_conversation",
+        "evidence": "You'll receive weekly performance reports every Monday."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "PROCESS",
+        "statement": "Provide performance reports (no frequency specified)",
+        "source": "contract_text",
+        "evidence": "Vendor shall provide performance reports to Client."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "PARTIAL",
+        "status": "PARTIALLY_MATCHED",
+        "confidence": 0.9,
+        "reasoning": "Contract mentions reports but not frequency. Sales promised weekly, contract is silent on cadence. Frequency obligation is missing from contract."
+      }
+    ],
+    "invariants_checked": ["INV-001: passed", "INV-003: passed", "INV-006: passed"]
+  }
+}

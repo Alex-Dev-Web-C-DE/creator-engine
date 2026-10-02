@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://boring-saas-infra.pages.dev/schemas/impact.schema.json",
+  "title": "Impact",
+  "description": "Quantified or qualified impact of a misalignment between promise and contract",
+  "type": "object",
+  "required": ["impact_id", "type", "direction"],
+  "properties": {
+    "impact_id": {
+      "type": "string",
+      "pattern": "^CALC-[A-Z0-9-]+$",
+      "description": "Unique calculation ID. Required by INV-002 when amount is non-null."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["FINANCIAL", "DATE", "QUANTITY", "SLA", "SCOPE", "OTHER"]
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "customer_pays_more",
+        "customer_pays_less",
+        "customer_waits_longer",
+        "customer_waits_shorter",
+        "customer_gets_more",
+        "customer_gets_fewer",
+        "customer_gets_weaker_sla",
+        "customer_gets_stronger_sla",
+        "customer_expects_earlier",
+        "customer_expects_later",
+        "vendor_gains",
+        "vendor_loses",
+        "neutral",
+        "unknown"
+      ],
+      "description": "Which party benefits or loses and in what direction"
+    },
+    "amount": {
+      "type": ["number", "null"],
+      "description": "Monetary impact (if FINANCIAL)"
+    },
+    "currency": {
+      "type": ["string", "null"],
+      "description": "ISO 4217 code (USD, EUR, UAH)"
+    },
+    "days_delta": {
+      "type": ["number", "null"],
+      "description": "Day difference (if DATE impact). Positive = customer waits longer."
+    },
+    "unit_delta": {
+      "type": ["number", "null"],
+      "description": "Unit difference (if QUANTITY impact)"
+    },
+    "unit_name": {
+      "type": ["string", "null"],
+      "description": "Unit name (seats, API calls, GB, etc.)"
+    },
+    "uptime_delta_percent": {
+      "type": ["number", "null"],
+      "description": "SLA percentage difference (if SLA impact)"
+    },
+    "missing_items": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "Items promised but not in contract (if SCOPE impact)"
+    },
+    "epistemic_level": {
+      "type": "string",
+      "enum": ["OBSERVED", "CALCULATED", "INFERRED", "HYPOTHESIZED", "SUGGESTED"],
+      "default": "CALCULATED",
+      "description": "Must be CALCULATED for arithmetic impacts (INV-007)"
+    },
+    "calculation_method": {
+      "type": ["string", "null"],
+      "description": "How the impact was calculated (e.g. '75,000 - 50,000 = 25,000')"
+    },
+    "assumptions": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "Assumptions made during calculation"
+    }
+  },
+  "allOf": [
+    {
+      "description": "INV-002: financial.amount != null requires calculation_id",
+      "if": {
+        "properties": { "type": { "const": "FINANCIAL" } }
+      },
+      "then": {
+        "required": ["amount", "currency", "impact_id"]
+      }
+    },
+    {
+      "description": "INV-007: OBSERVED cannot describe arithmetic. Use CALCULATED.",
+      "if": {
+        "properties": {
+          "amount": { "type": "number" }
+        }
+      },
+      "then": {
+        "properties": {
+          "epistemic_level": { "const": "CALCULATED" }
+        }
+      }
+    }
+  ]
+}

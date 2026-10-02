@@ -1,0 +1,46 @@
+{
+  "case_id": "PA-001",
+  "category": "EXACT_MATCH",
+  "description": "Sales promise matches contract clause exactly",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Can you deliver the analytics dashboard by end of Q3?' Sales: 'Yes, we will deliver the analytics dashboard by September 30, 2026.'",
+    "contract_text": "Section 3.1 Deliverables: Vendor shall deliver the Analytics Dashboard to Client on or before September 30, 2026."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "DELIVERABLE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Deliver the analytics dashboard by September 30, 2026",
+        "source": "sales_conversation",
+        "evidence": "Yes, we will deliver the analytics dashboard by September 30, 2026."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "DELIVERABLE",
+        "statement": "Deliver the Analytics Dashboard on or before September 30, 2026",
+        "source": "contract_text",
+        "evidence": "Vendor shall deliver the Analytics Dashboard to Client on or before September 30, 2026."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "EXACT",
+        "status": "MATCHED",
+        "confidence": 0.98,
+        "reasoning": "Both promise and contract specify delivery of the analytics dashboard by September 30, 2026. Semantically identical."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: CONFLICT requires evidence — passed (no conflict)",
+      "INV-003: Evidence location must exist in source — passed",
+      "INV-006: LLM-explanation cannot create new factual value — passed"
+    ]
+  }
+}

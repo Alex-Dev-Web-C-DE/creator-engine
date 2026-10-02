@@ -1,0 +1,48 @@
+{
+  "case_id": "PA-010",
+  "category": "CONFLICT",
+  "description": "Sales promised 99.99% uptime, contract says 99.9%",
+  "source_documents": {
+    "sales_conversation": "Customer: 'What is your uptime SLA?' Sales: 'We guarantee 99.99% uptime.'",
+    "contract_text": "Section 9.1 SLA: Vendor commits to 99.9% monthly uptime."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "PERFORMANCE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "99.99% uptime SLA",
+        "source": "sales_conversation",
+        "evidence": "We guarantee 99.99% uptime."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "PERFORMANCE",
+        "statement": "99.9% monthly uptime",
+        "source": "contract_text",
+        "evidence": "Vendor commits to 99.9% monthly uptime."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "CONFLICT",
+        "status": "REVIEW_REQUIRED",
+        "confidence": 0.96,
+        "reasoning": "99.99% vs 99.9% — 10x more allowed downtime. Customer expected stronger SLA.",
+        "impact": {
+          "type": "SLA",
+          "uptime_delta_percent": 0.09,
+          "direction": "customer_gets_weaker_sla",
+          "calculation_id": "CALC-PA-010-001"
+        }
+      }
+    ],
+    "invariants_checked": ["INV-001: passed", "INV-002: passed", "INV-003: passed", "INV-006: passed"]
+  }
+}

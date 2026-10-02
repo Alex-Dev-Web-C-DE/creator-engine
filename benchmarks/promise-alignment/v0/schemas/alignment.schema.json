@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://boring-saas-infra.pages.dev/schemas/alignment.schema.json",
+  "title": "Alignment",
+  "description": "Relationship between a promise and a contract term",
+  "type": "object",
+  "required": ["alignment_id", "promise_id", "relationship", "status", "confidence"],
+  "properties": {
+    "alignment_id": {
+      "type": "string",
+      "pattern": "^ALIGN-[0-9]{3}$"
+    },
+    "promise_id": {
+      "type": "string",
+      "pattern": "^PROM-[0-9]{3}$"
+    },
+    "term_id": {
+      "type": ["string", "null"],
+      "pattern": "^TERM-[0-9]{3}$",
+      "description": "Null if promise is missing from contract"
+    },
+    "relationship": {
+      "type": "string",
+      "enum": [
+        "EXACT",
+        "IMPLIED",
+        "PARTIAL",
+        "CONFLICT",
+        "MISSING",
+        "AMBIGUOUS",
+        "OUTSIDE_SCOPE",
+        "DUPLICATE"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "MATCHED",
+        "PARTIALLY_MATCHED",
+        "UNMATCHED",
+        "AMBIGUOUS",
+        "NOT_APPLICABLE",
+        "REVIEW_REQUIRED"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "reasoning": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Engine explanation of the alignment"
+    },
+    "impact": {
+      "type": ["object", "null"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["FINANCIAL", "DATE", "QUANTITY", "SLA", "SCOPE", "OTHER"]
+        },
+        "amount": { "type": ["number", "null"] },
+        "currency": { "type": ["string", "null"] },
+        "days_delta": { "type": ["number", "null"] },
+        "unit_delta": { "type": ["number", "null"] },
+        "uptime_delta_percent": { "type": ["number", "null"] },
+        "missing_items": {
+          "type": ["array", "null"],
+          "items": { "type": "string" }
+        },
+        "direction": { "type": ["string", "null"] },
+        "calculation_id": {
+          "type": ["string", "null"],
+          "description": "Required if amount is non-null (INV-002)"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "relationship": { "const": "CONFLICT" } }
+      },
+      "then": {
+        "required": ["impact", "reasoning"],
+        "description": "INV-001: CONFLICT requires evidence"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": { "const": "AMBIGUOUS" }
+        }
+      },
+      "then": {
+        "properties": {
+          "status": { "const": "REVIEW_REQUIRED" }
+        },
+        "description": "INV-005: AMBIGUOUS must have review_required"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "case_id": "PA-019",
+  "category": "EXACT_MATCH",
+  "description": "Same date in different formats",
+  "source_documents": {
+    "sales_conversation": "Sales: 'We will have the deliverable ready on 12/15/2026.'",
+    "contract_text": "Section 3.1 Delivery: Deliverable due December 15, 2026."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "TIMELINE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Deliverable due 12/15/2026",
+        "source": "sales_conversation",
+        "evidence": "We will have the deliverable ready on 12/15/2026."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "TIMELINE",
+        "statement": "Deliverable due December 15, 2026",
+        "source": "contract_text",
+        "evidence": "Deliverable due December 15, 2026."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "EXACT",
+        "status": "MATCHED",
+        "confidence": 0.99,
+        "reasoning": "12/15/2026 and December 15, 2026 refer to the same date. Normalized to ISO: 2026-12-15."
+      }
+    ],
+    "invariants_checked": ["INV-001: passed", "INV-003: passed", "INV-006: passed"]
+  }
+}

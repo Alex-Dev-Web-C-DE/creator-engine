@@ -1,0 +1,528 @@
+{
+  "summary": {
+    "benchmark": "promise-alignment-v0-engine-eval",
+    "run_at": "2026-10-02T08:47:55.286Z",
+    "total": 20,
+    "passed": 16,
+    "failed": 4,
+    "accuracy": 0.8
+  },
+  "results": [
+    {
+      "case_id": "PA-001",
+      "category": "EXACT_MATCH",
+      "expected_relationships": [
+        "EXACT"
+      ],
+      "actual_relationships": [
+        "EXACT"
+      ],
+      "expected_statuses": [
+        "MATCHED"
+      ],
+      "actual_statuses": [
+        "MATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-002",
+      "category": "SYNONYM_MATCH",
+      "expected_relationships": [
+        "EXACT"
+      ],
+      "actual_relationships": [
+        "EXACT"
+      ],
+      "expected_statuses": [
+        "MATCHED"
+      ],
+      "actual_statuses": [
+        "MATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-003",
+      "category": "IMPLIED_MATCH",
+      "expected_relationships": [
+        "IMPLIED"
+      ],
+      "actual_relationships": [
+        "IMPLIED"
+      ],
+      "expected_statuses": [
+        "MATCHED"
+      ],
+      "actual_statuses": [
+        "MATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-004",
+      "category": "IMPLIED_MATCH",
+      "expected_relationships": [
+        "IMPLIED"
+      ],
+      "actual_relationships": [
+        "EXACT"
+      ],
+      "expected_statuses": [
+        "MATCHED"
+      ],
+      "actual_statuses": [
+        "MATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": false,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": false
+    },
+    {
+      "case_id": "PA-005",
+      "category": "MISSING",
+      "expected_relationships": [
+        "PARTIAL"
+      ],
+      "actual_relationships": [
+        "PARTIAL"
+      ],
+      "expected_statuses": [
+        "PARTIALLY_MATCHED"
+      ],
+      "actual_statuses": [
+        "PARTIALLY_MATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-006",
+      "category": "MISSING",
+      "expected_relationships": [
+        "MISSING"
+      ],
+      "actual_relationships": [
+        "MISSING"
+      ],
+      "expected_statuses": [
+        "UNMATCHED"
+      ],
+      "actual_statuses": [
+        "UNMATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-007",
+      "category": "PRICE_CONFLICT",
+      "expected_relationships": [
+        "CONFLICT"
+      ],
+      "actual_relationships": [
+        "CONFLICT"
+      ],
+      "expected_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "actual_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-008",
+      "category": "DATE_CONFLICT",
+      "expected_relationships": [
+        "CONFLICT"
+      ],
+      "actual_relationships": [
+        "CONFLICT"
+      ],
+      "expected_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "actual_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-009",
+      "category": "CONFLICT",
+      "expected_relationships": [
+        "CONFLICT"
+      ],
+      "actual_relationships": [
+        "CONFLICT"
+      ],
+      "expected_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "actual_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-010",
+      "category": "CONFLICT",
+      "expected_relationships": [
+        "CONFLICT"
+      ],
+      "actual_relationships": [
+        "CONFLICT"
+      ],
+      "expected_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "actual_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-011",
+      "category": "NO_PROMISE",
+      "expected_relationships": [],
+      "actual_relationships": [],
+      "expected_statuses": [],
+      "actual_statuses": [],
+      "expected_promises_count": 0,
+      "actual_promises_count": 0,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-012",
+      "category": "NO_PROMISE",
+      "expected_relationships": [],
+      "actual_relationships": [],
+      "expected_statuses": [],
+      "actual_statuses": [],
+      "expected_promises_count": 0,
+      "actual_promises_count": 0,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-013",
+      "category": "AMBIGUOUS",
+      "expected_relationships": [
+        "AMBIGUOUS"
+      ],
+      "actual_relationships": [
+        "AMBIGUOUS"
+      ],
+      "expected_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "actual_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-014",
+      "category": "AMBIGUOUS",
+      "expected_relationships": [
+        "AMBIGUOUS"
+      ],
+      "actual_relationships": [
+        "AMBIGUOUS"
+      ],
+      "expected_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "actual_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-015",
+      "category": "PARTIAL",
+      "expected_relationships": [
+        "PARTIAL",
+        "PARTIAL",
+        "PARTIAL"
+      ],
+      "actual_relationships": [
+        "EXACT",
+        "PARTIAL",
+        "PARTIAL"
+      ],
+      "expected_statuses": [
+        "PARTIALLY_MATCHED",
+        "PARTIALLY_MATCHED",
+        "PARTIALLY_MATCHED"
+      ],
+      "actual_statuses": [
+        "MATCHED",
+        "PARTIALLY_MATCHED",
+        "PARTIALLY_MATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": false,
+        "statuses_match": false,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": false
+    },
+    {
+      "case_id": "PA-016",
+      "category": "PARTIAL",
+      "expected_relationships": [
+        "PARTIAL"
+      ],
+      "actual_relationships": [
+        "PARTIAL"
+      ],
+      "expected_statuses": [
+        "PARTIALLY_MATCHED"
+      ],
+      "actual_statuses": [
+        "PARTIALLY_MATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-017",
+      "category": "MATCHED",
+      "expected_relationships": [
+        "IMPLIED",
+        "IMPLIED"
+      ],
+      "actual_relationships": [
+        "EXACT",
+        "IMPLIED"
+      ],
+      "expected_statuses": [
+        "MATCHED",
+        "MATCHED"
+      ],
+      "actual_statuses": [
+        "MATCHED",
+        "MATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 2,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": false,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": false
+    },
+    {
+      "case_id": "PA-018",
+      "category": "AMBIGUOUS",
+      "expected_relationships": [
+        "AMBIGUOUS"
+      ],
+      "actual_relationships": [
+        "PARTIAL"
+      ],
+      "expected_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "actual_statuses": [
+        "PARTIALLY_MATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": false,
+        "statuses_match": false,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": false
+    },
+    {
+      "case_id": "PA-019",
+      "category": "EXACT_MATCH",
+      "expected_relationships": [
+        "EXACT"
+      ],
+      "actual_relationships": [
+        "EXACT"
+      ],
+      "expected_statuses": [
+        "MATCHED"
+      ],
+      "actual_statuses": [
+        "MATCHED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "PA-020",
+      "category": "CONFLICT",
+      "expected_relationships": [
+        "CONFLICT"
+      ],
+      "actual_relationships": [
+        "CONFLICT"
+      ],
+      "expected_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "actual_statuses": [
+        "REVIEW_REQUIRED"
+      ],
+      "expected_promises_count": null,
+      "actual_promises_count": 1,
+      "engine_invariant_violations": [],
+      "checks": {
+        "relationships_match": true,
+        "statuses_match": true,
+        "promises_count_match": true,
+        "no_engine_invariant_violations": true
+      },
+      "passed": true
+    }
+  ]
+}

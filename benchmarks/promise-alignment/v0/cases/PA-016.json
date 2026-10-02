@@ -1,0 +1,47 @@
+{
+  "case_id": "PA-016",
+  "category": "PARTIAL",
+  "description": "Sales promises one thing, contract covers part of it",
+  "source_documents": {
+    "sales_conversation": "Sales: 'You will get all integrations — Salesforce, HubSpot, and Pipedrive.'",
+    "contract_text": "Section 5.3 Integrations: Vendor shall provide native integration with Salesforce."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "INTEGRATION",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Salesforce + HubSpot + Pipedrive integrations",
+        "source": "sales_conversation",
+        "evidence": "You will get all integrations — Salesforce, HubSpot, and Pipedrive."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "INTEGRATION",
+        "statement": "Salesforce integration",
+        "source": "contract_text",
+        "evidence": "Vendor shall provide native integration with Salesforce."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "PARTIAL",
+        "status": "PARTIALLY_MATCHED",
+        "confidence": 0.95,
+        "reasoning": "Sales promised 3 integrations, contract covers only 1 (Salesforce). HubSpot and Pipedrive are missing from contract.",
+        "impact": {
+          "type": "SCOPE",
+          "missing_items": ["HubSpot", "Pipedrive"],
+          "calculation_id": "CALC-PA-016-001"
+        }
+      }
+    ],
+    "invariants_checked": ["INV-001: passed", "INV-002: passed", "INV-003: passed", "INV-006: passed"]
+  }
+}

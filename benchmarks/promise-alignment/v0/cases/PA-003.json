@@ -1,0 +1,46 @@
+{
+  "case_id": "PA-003",
+  "category": "IMPLIED_MATCH",
+  "description": "Sales promises feature, contract implies it via broader term",
+  "source_documents": {
+    "sales_conversation": "Customer: 'What about single sign-on?' Sales: 'Yes, SSO is included.'",
+    "contract_text": "Section 5.2 Authentication: The system shall support enterprise authentication methods including SAML 2.0 and OAuth 2.0."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "FEATURE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "SSO is included",
+        "source": "sales_conversation",
+        "evidence": "Yes, SSO is included."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "FEATURE",
+        "statement": "Enterprise authentication via SAML 2.0 and OAuth 2.0",
+        "source": "contract_text",
+        "evidence": "The system shall support enterprise authentication methods including SAML 2.0 and OAuth 2.0."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "IMPLIED",
+        "status": "MATCHED",
+        "confidence": 0.85,
+        "reasoning": "SSO is typically implemented via SAML 2.0 or OAuth 2.0. Contract specifies these protocols, so SSO is implied. Reasoning is semantic, not literal."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed",
+      "INV-006: LLM-explanation cannot create new factual value — passed (implied relationship is inference, marked as IMPLIED not EXACT)"
+    ]
+  }
+}

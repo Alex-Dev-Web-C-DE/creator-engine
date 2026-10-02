@@ -1,0 +1,26 @@
+{
+  "case_id": "PA-011",
+  "category": "NO_PROMISE",
+  "description": "Sales mentions feature as optional, no commitment",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Do you have dark mode?' Sales: 'We could add it later if there is demand.'",
+    "contract_text": "Section 2.1 Scope: Vendor shall provide the SaaS platform as described in the product documentation."
+  },
+  "expected": {
+    "promises": [],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "DELIVERABLE",
+        "statement": "SaaS platform as described in product documentation",
+        "source": "contract_text",
+        "evidence": "Vendor shall provide the SaaS platform as described in the product documentation."
+      }
+    ],
+    "alignments": [],
+    "invariants_checked": [
+      "INV-004: NOT_COMMITMENT cannot create Promise — passed (no promise created)"
+    ],
+    "notes": "Sales used hypothetical language (could add it later). This is DISCUSSION, not commitment. No Promise should be created."
+  }
+}

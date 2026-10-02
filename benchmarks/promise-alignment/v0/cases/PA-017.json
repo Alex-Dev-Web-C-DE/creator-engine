@@ -1,0 +1,59 @@
+{
+  "case_id": "PA-017",
+  "category": "MATCHED",
+  "description": "Multiple sales statements match one contract clause",
+  "source_documents": {
+    "sales_conversation": "Sales: 'You will get email support, chat support, and phone support.' Later: 'Our support team is available 24/7.'",
+    "contract_text": "Section 9.1 Support: Vendor shall provide 24/7 multi-channel support including email, chat, and phone."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "SUPPORT_SLA",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Email + chat + phone support",
+        "source": "sales_conversation",
+        "evidence": "You will get email support, chat support, and phone support."
+      },
+      {
+        "promise_id": "PROM-002",
+        "type": "SUPPORT_SLA",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "24/7 support availability",
+        "source": "sales_conversation",
+        "evidence": "Our support team is available 24/7."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "SUPPORT_SLA",
+        "statement": "24/7 multi-channel support (email, chat, phone)",
+        "source": "contract_text",
+        "evidence": "Vendor shall provide 24/7 multi-channel support including email, chat, and phone."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "IMPLIED",
+        "status": "MATCHED",
+        "confidence": 0.95,
+        "reasoning": "Promise covers channels — matches part of multi-channel clause"
+      },
+      {
+        "alignment_id": "ALIGN-002",
+        "promise_id": "PROM-002",
+        "term_id": "TERM-001",
+        "relationship": "IMPLIED",
+        "status": "MATCHED",
+        "confidence": 0.95,
+        "reasoning": "Promise covers availability — matches part of multi-channel clause"
+      }
+    ],
+    "invariants_checked": ["INV-001: passed", "INV-003: passed", "INV-006: passed"]
+  }
+}

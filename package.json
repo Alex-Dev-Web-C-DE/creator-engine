@@ -1,0 +1,21 @@
+{
+  "name": "creator-engine",
+  "version": "0.1.0",
+  "description": "Creator Engine — Promise Extraction for business reality alignment",
+  "type": "module",
+  "main": "src/engine.js",
+  "scripts": {
+    "engine": "node src/engine.js",
+    "eval": "node benchmarks/promise-alignment/v0/evaluator.js"
+  },
+  "keywords": ["mcp", "ai", "comparison", "engine"],
+  "author": "Alex-Dev-Web-C-DE",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.67.0"
+  }
+}
