@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Creator Engine — Promise Extraction Engine v0.3
+ * Creator Engine v0.4 � Promise Extraction + Alignment
  *
- * Improvements over v0.2:
+ * Changes in v0.4:
  *   - Compound contract clauses = ONE term (not two)
  *   - Synonym detection → EXACT (not IMPLIED)
  *   - Bundled promise → all PARTIAL (not EXACT)
