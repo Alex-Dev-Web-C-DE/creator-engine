@@ -1,14 +1,20 @@
 {
   "name": "creator-engine",
   "version": "0.4.0",
-  "description": "Creator Engine v0.4 — Promise Extraction + Alignment for business reality checks",
+  "description": "Creator Engine v0.4 ï¿½ Promise Extraction + Alignment for business reality checks",
   "type": "module",
   "main": "src/engine.js",
   "scripts": {
     "engine": "node src/engine.js",
-    "eval": "node benchmarks/promise-alignment/v0/evaluator.js"
+    "eval": "node benchmarks/promise-alignment/v0/evaluator.js",
+    "test": "node benchmarks/promise-alignment/v0/evaluator.js"
   },
-  "keywords": ["mcp", "ai", "comparison", "engine"],
+  "keywords": [
+    "mcp",
+    "ai",
+    "comparison",
+    "engine"
+  ],
   "author": "Alex-Dev-Web-C-DE",
   "license": "MIT",
   "engines": {
@@ -19,4 +25,3 @@
     "openai": "^4.67.0"
   }
 }
-
