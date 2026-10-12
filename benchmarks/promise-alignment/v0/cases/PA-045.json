@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-045",
+  "category": "PARTIAL",
+  "description": "Partial: 5 languages promised, 3 in contract",
+  "source_documents": {
+    "sales_conversation": "Customer: 'What languages do you support?' Sales: 'We support English, Spanish, French, German, and Italian.'",
+    "contract_text": "Section 2.4 Localization: The Platform supports English, Spanish, and French."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "AVAILABILITY",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "English, Spanish, French, German, Italian",
+        "source": "sales_conversation",
+        "evidence": "We support English, Spanish, French, German, and Italian."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "AVAILABILITY",
+        "statement": "English, Spanish, French",
+        "source": "contract_text",
+        "evidence": "The Platform supports English, Spanish, and French."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "PARTIAL",
+        "status": "PARTIALLY_MATCHED",
+        "confidence": 0.9,
+        "reasoning": "DE + IT promised but not contracted."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

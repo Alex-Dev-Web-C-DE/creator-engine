@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-033",
+  "category": "MISSING",
+  "description": "Missing: migration promised, no term",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Can you migrate our old data?' Sales: 'Sure, we will handle the data migration for you at no extra cost.'",
+    "contract_text": "Section 3.1 Deliverables: Delivery of the new system by Q2."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "DELIVERABLE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Data migration at no extra cost",
+        "source": "sales_conversation",
+        "evidence": "we will handle the data migration for you at no extra cost."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "DELIVERABLE",
+        "statement": "Delivery of new system by Q2",
+        "source": "contract_text",
+        "evidence": "Delivery of the new system by Q2."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "MISSING",
+        "status": "UNMATCHED",
+        "confidence": 0.9,
+        "reasoning": "Migration promised but not in contract deliverables."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

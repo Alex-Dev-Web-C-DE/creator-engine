@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-025",
+  "category": "SYNONYM_MATCH",
+  "description": "Synonym: pilot vs evaluation period",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Can we try it first?' Sales: 'Yes, we will give you a 30-day pilot at no cost.'",
+    "contract_text": "Section 1.4 Evaluation: A 30-day evaluation period is provided free of charge."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "PROCESS",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "30-day pilot at no cost",
+        "source": "sales_conversation",
+        "evidence": "we will give you a 30-day pilot at no cost."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "PROCESS",
+        "statement": "30-day evaluation period free of charge",
+        "source": "contract_text",
+        "evidence": "A 30-day evaluation period is provided free of charge."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "EXACT",
+        "status": "MATCHED",
+        "confidence": 0.93,
+        "reasoning": "pilot = evaluation period (synonyms)."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "case_id": "PA-036",
+  "category": "CONFLICT",
+  "description": "Volume conflict: 100GB vs 50GB",
+  "source_documents": {
+    "sales_conversation": "Customer: 'How much storage do we get?' Sales: 'You will have 100GB of storage.'",
+    "contract_text": "Section 3.4 Storage: Customer is allocated 50GB of storage."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "QUANTITY",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "100GB storage",
+        "source": "sales_conversation",
+        "evidence": "You will have 100GB of storage."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "QUANTITY",
+        "statement": "50GB storage allocated",
+        "source": "contract_text",
+        "evidence": "Customer is allocated 50GB of storage."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "CONFLICT",
+        "status": "REVIEW_REQUIRED",
+        "confidence": 0.97,
+        "reasoning": "Sales said 100GB, contract grants 50GB.",
+        "impact": {
+          "type": "QUANTITY",
+          "amount_delta": 50,
+          "unit": "GB",
+          "direction": "contract_lower",
+          "calculation_id": "CALC-PA-036-001"
+        }
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

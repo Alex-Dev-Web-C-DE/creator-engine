@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-028",
+  "category": "IMPLIED_MATCH",
+  "description": "Implied: backups via data-protection clause",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Is our data backed up?' Sales: 'We handle that as part of our standard data protection.'",
+    "contract_text": "Section 8.1 Data Protection: Vendor shall perform daily encrypted backups with 30-day retention."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "PROCESS",
+        "status": "STRONG_EXPECTATION",
+        "statement": "Data backed up under standard data protection",
+        "source": "sales_conversation",
+        "evidence": "We handle that as part of our standard data protection."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "PROCESS",
+        "statement": "Daily encrypted backups, 30-day retention",
+        "source": "contract_text",
+        "evidence": "Vendor shall perform daily encrypted backups with 30-day retention."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "IMPLIED",
+        "status": "MATCHED",
+        "confidence": 0.85,
+        "reasoning": "Backups implied by \"standard data protection\" promise."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

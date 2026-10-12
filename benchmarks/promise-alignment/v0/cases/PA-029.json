@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-029",
+  "category": "IMPLIED_MATCH",
+  "description": "Implied: mobile via \"all platforms\"",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Does it work on phones?' Sales: 'Our app runs on all major platforms.'",
+    "contract_text": "Section 2.3 Platforms: The Application is available on iOS and Android."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "AVAILABILITY",
+        "status": "STRONG_EXPECTATION",
+        "statement": "Runs on all major platforms (incl. mobile)",
+        "source": "sales_conversation",
+        "evidence": "Our app runs on all major platforms."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "AVAILABILITY",
+        "statement": "Available on iOS and Android",
+        "source": "contract_text",
+        "evidence": "The Application is available on iOS and Android."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "IMPLIED",
+        "status": "MATCHED",
+        "confidence": 0.87,
+        "reasoning": "\"All major platforms\" implies iOS + Android."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 /**
- * Creator Engine v0.4 � Promise Extraction + Alignment
+ * Creator Engine v0.5 — Promise Extraction + Alignment (50 benchmark cases)
+ *
+ * Changes in v0.5:
+ *   - Expanded benchmark: 20 → 50 cases
+ *   - New categories: PROMPT_INJECTION (dedicated)
+ *   - Additional: synonym, implied, missing, partial edge cases
  *
  * Changes in v0.4:
  *   - Compound contract clauses = ONE term (not two)

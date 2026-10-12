@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-030",
+  "category": "IMPLIED_MATCH",
+  "description": "Implied: API rate via \"unlimited API access\"",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Any API rate limits?' Sales: 'The Pro plan gives you unrestricted API access.'",
+    "contract_text": "Section 9.2 API: The Pro tier permits up to 10,000 API calls per hour."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "AVAILABILITY",
+        "status": "STRONG_EXPECTATION",
+        "statement": "Unrestricted API access on Pro",
+        "source": "sales_conversation",
+        "evidence": "The Pro plan gives you unrestricted API access."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "AVAILABILITY",
+        "statement": "Up to 10,000 API calls per hour on Pro",
+        "source": "contract_text",
+        "evidence": "The Pro tier permits up to 10,000 API calls per hour."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "IMPLIED",
+        "status": "MATCHED",
+        "confidence": 0.8,
+        "reasoning": "\"Unrestricted\" implied by tier, contract clarifies actual 10k/hour cap."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

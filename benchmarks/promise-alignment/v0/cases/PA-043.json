@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-043",
+  "category": "AMBIGUOUS",
+  "description": "Vague timeframe: \"soon\"",
+  "source_documents": {
+    "sales_conversation": "Customer: 'When will the new feature ship?' Sales: 'It will ship soon, we are close.'",
+    "contract_text": "Section 3.5 Roadmap: New analytics feature to be released by Q4 2026."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "TIMELINE",
+        "status": "TENTATIVE",
+        "statement": "Ship new feature soon",
+        "source": "sales_conversation",
+        "evidence": "It will ship soon, we are close."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "TIMELINE",
+        "statement": "Analytics feature by Q4 2026",
+        "source": "contract_text",
+        "evidence": "New analytics feature to be released by Q4 2026."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "AMBIGUOUS",
+        "status": "REVIEW_REQUIRED",
+        "confidence": 0.55,
+        "reasoning": "\"Soon\" is too vague to confirm Q4 2026 alignment."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

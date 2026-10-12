@@ -1,0 +1,51 @@
+{
+  "case_id": "PA-035",
+  "category": "CONFLICT",
+  "description": "Timeline conflict: 2 weeks vs 4 weeks",
+  "source_documents": {
+    "sales_conversation": "Customer: 'When can you start?' Sales: 'We will kick off in 2 weeks.'",
+    "contract_text": "Section 2.1 Commencement: Services shall commence no later than 4 weeks after signing."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "TIMELINE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Kick off in 2 weeks",
+        "source": "sales_conversation",
+        "evidence": "We will kick off in 2 weeks."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "TIMELINE",
+        "statement": "Commencement no later than 4 weeks",
+        "source": "contract_text",
+        "evidence": "Services shall commence no later than 4 weeks after signing."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "CONFLICT",
+        "status": "REVIEW_REQUIRED",
+        "confidence": 0.95,
+        "reasoning": "2 weeks promised vs 4 weeks in contract.",
+        "impact": {
+          "type": "DATE",
+          "days_delta": 14,
+          "direction": "contract_allows_later",
+          "calculation_id": "CALC-PA-035-001"
+        }
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

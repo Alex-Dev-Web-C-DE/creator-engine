@@ -1,0 +1,26 @@
+{
+  "case_id": "PA-039",
+  "category": "NO_PROMISE",
+  "description": "Customer question only, no vendor commitment",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Can you send me a proposal?' Sales: 'Sure, what format would you prefer?'",
+    "contract_text": "Section 2.1 Proposal: Vendor to provide written proposal within 5 business days of request."
+  },
+  "expected": {
+    "promises": [],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "DELIVERABLE",
+        "statement": "Written proposal within 5 business days",
+        "source": "contract_text",
+        "evidence": "Vendor to provide written proposal within 5 business days of request."
+      }
+    ],
+    "alignments": [],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

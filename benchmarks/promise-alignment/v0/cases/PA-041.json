@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-041",
+  "category": "AMBIGUOUS",
+  "description": "Tentative language: probably / should be able to",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Will the migration be done by March?' Sales: 'We should probably be able to finish by March, but it depends on your data quality.'",
+    "contract_text": "Section 3.1 Timeline: Migration completion targeted for end of Q1."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "TIMELINE",
+        "status": "TENTATIVE",
+        "statement": "Finish migration by March (conditional)",
+        "source": "sales_conversation",
+        "evidence": "We should probably be able to finish by March, but it depends on your data quality."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "TIMELINE",
+        "statement": "Migration targeted end of Q1",
+        "source": "contract_text",
+        "evidence": "Migration completion targeted for end of Q1."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "AMBIGUOUS",
+        "status": "REVIEW_REQUIRED",
+        "confidence": 0.65,
+        "reasoning": "Tentative \"probably\" language with conditional \"depends on data quality\"."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

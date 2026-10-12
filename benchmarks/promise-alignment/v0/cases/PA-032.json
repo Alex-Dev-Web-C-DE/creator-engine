@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-032",
+  "category": "MISSING",
+  "description": "Missing: quarterly reviews promised, no term",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Do you do check-ins?' Sales: 'We will hold quarterly business reviews with your leadership.'",
+    "contract_text": "Section 4.1 Term: Monthly service reports provided to Customer contact."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "PROCESS",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Quarterly business reviews with leadership",
+        "source": "sales_conversation",
+        "evidence": "We will hold quarterly business reviews with your leadership."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "PROCESS",
+        "statement": "Monthly service reports to Customer contact",
+        "source": "contract_text",
+        "evidence": "Monthly service reports provided to Customer contact."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "MISSING",
+        "status": "UNMATCHED",
+        "confidence": 0.85,
+        "reasoning": "QBR promised but contract only specifies monthly reports."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

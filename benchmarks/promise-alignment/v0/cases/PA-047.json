@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-047",
+  "category": "MATCHED",
+  "description": "N:1 — 3 promises to 1 vendor-responsibility term",
+  "source_documents": {
+    "sales_conversation": "Customer: 'What do you cover?' Sales: 'We cover hosting, monitoring, and backups.'",
+    "contract_text": "Section 7.1 Managed Services: Vendor is responsible for all infrastructure operations."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "PROCESS",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Hosting, monitoring, backups",
+        "source": "sales_conversation",
+        "evidence": "We cover hosting, monitoring, and backups."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "PROCESS",
+        "statement": "All infrastructure operations",
+        "source": "contract_text",
+        "evidence": "Vendor is responsible for all infrastructure operations."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "IMPLIED",
+        "status": "MATCHED",
+        "confidence": 0.82,
+        "reasoning": "Hosting + monitoring + backups all implied by \"all infrastructure operations\"."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

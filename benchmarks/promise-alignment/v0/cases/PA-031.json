@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-031",
+  "category": "MISSING",
+  "description": "Missing: training promised, no contract term",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Will you train our team?' Sales: 'Yes, we will run a 2-day onsite training for your staff.'",
+    "contract_text": "Section 5.2 Services: Vendor shall provide software implementation and support."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "DELIVERABLE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "2-day onsite training",
+        "source": "sales_conversation",
+        "evidence": "we will run a 2-day onsite training for your staff."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "DELIVERABLE",
+        "statement": "Software implementation and support",
+        "source": "contract_text",
+        "evidence": "Vendor shall provide software implementation and support."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "MISSING",
+        "status": "UNMATCHED",
+        "confidence": 0.9,
+        "reasoning": "Training promised but not present in contract scope."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

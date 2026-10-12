@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-022",
+  "category": "EXACT_MATCH",
+  "description": "Support SLA exact match",
+  "source_documents": {
+    "sales_conversation": "Customer: 'How fast do you respond to critical bugs?' Sales: 'We commit to a 4-hour response time for critical issues.'",
+    "contract_text": "Section 5.1 SLA: Vendor shall respond to Severity 1 issues within 4 hours."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "SUPPORT_SLA",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "4-hour response time for critical issues",
+        "source": "sales_conversation",
+        "evidence": "We commit to a 4-hour response time for critical issues."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "SUPPORT_SLA",
+        "statement": "Respond to Severity 1 issues within 4 hours",
+        "source": "contract_text",
+        "evidence": "Vendor shall respond to Severity 1 issues within 4 hours."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "EXACT",
+        "status": "MATCHED",
+        "confidence": 0.96,
+        "reasoning": "Both specify 4-hour response for critical/Sev-1 issues."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

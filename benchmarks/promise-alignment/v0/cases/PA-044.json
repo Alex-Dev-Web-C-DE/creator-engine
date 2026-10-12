@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-044",
+  "category": "PARTIAL",
+  "description": "Partial: support covers only 2 of 3 channels",
+  "source_documents": {
+    "sales_conversation": "Customer: 'How do we reach support?' Sales: 'You can reach us via email, chat, and phone.'",
+    "contract_text": "Section 6.1 Support: Support available via email and live chat during business hours."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "SUPPORT_SLA",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Support via email, chat, phone",
+        "source": "sales_conversation",
+        "evidence": "You can reach us via email, chat, and phone."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "SUPPORT_SLA",
+        "statement": "Support via email and chat",
+        "source": "contract_text",
+        "evidence": "Support available via email and live chat during business hours."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "PARTIAL",
+        "status": "PARTIALLY_MATCHED",
+        "confidence": 0.85,
+        "reasoning": "Phone promised but not in contract; email + chat match."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

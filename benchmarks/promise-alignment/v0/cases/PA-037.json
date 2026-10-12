@@ -1,0 +1,51 @@
+{
+  "case_id": "PA-037",
+  "category": "CONFLICT",
+  "description": "Warranty conflict: 24 months vs 12 months",
+  "source_documents": {
+    "sales_conversation": "Customer: 'What is the warranty?' Sales: 'We give you a 24-month warranty on hardware.'",
+    "contract_text": "Section 8.1 Warranty: Vendor warrants hardware for 12 months from delivery."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "SUPPORT_SLA",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "24-month hardware warranty",
+        "source": "sales_conversation",
+        "evidence": "We give you a 24-month warranty on hardware."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "SUPPORT_SLA",
+        "statement": "12-month hardware warranty from delivery",
+        "source": "contract_text",
+        "evidence": "Vendor warrants hardware for 12 months from delivery."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "CONFLICT",
+        "status": "REVIEW_REQUIRED",
+        "confidence": 0.96,
+        "reasoning": "24-month promised vs 12-month in contract.",
+        "impact": {
+          "type": "DATE",
+          "days_delta": 365,
+          "direction": "customer_expects_longer",
+          "calculation_id": "CALC-PA-037-001"
+        }
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

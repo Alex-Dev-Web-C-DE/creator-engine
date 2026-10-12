@@ -1,0 +1,26 @@
+{
+  "case_id": "PA-040",
+  "category": "NO_PROMISE",
+  "description": "Small talk, no commitment",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Great weather today.' Sales: 'Indeed! Perfect for the weekend.'",
+    "contract_text": "Section 12.1 Miscellaneous: The parties agree to the terms herein."
+  },
+  "expected": {
+    "promises": [],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "OTHER",
+        "statement": "Parties agree to the terms",
+        "source": "contract_text",
+        "evidence": "The parties agree to the terms herein."
+      }
+    ],
+    "alignments": [],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

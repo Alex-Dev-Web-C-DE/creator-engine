@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-027",
+  "category": "IMPLIED_MATCH",
+  "description": "Implied: SSO via enterprise tier",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Do you support SSO?' Sales: 'That comes with our Enterprise tier.'",
+    "contract_text": "Section 3.2 Enterprise Features: The Enterprise tier includes Single Sign-On integration."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "FEATURE",
+        "status": "STRONG_EXPECTATION",
+        "statement": "SSO supported in Enterprise tier",
+        "source": "sales_conversation",
+        "evidence": "That comes with our Enterprise tier."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "FEATURE",
+        "statement": "Single Sign-On in Enterprise tier",
+        "source": "contract_text",
+        "evidence": "The Enterprise tier includes Single Sign-On integration."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "IMPLIED",
+        "status": "MATCHED",
+        "confidence": 0.88,
+        "reasoning": "SSO implied by \"that comes with Enterprise tier\", contract explicitly grants SSO in same tier."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

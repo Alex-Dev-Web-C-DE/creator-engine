@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-046",
+  "category": "PARTIAL",
+  "description": "Partial: 3 integrations promised, 1 contracted",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Does it integrate with our stack?' Sales: 'We integrate with Salesforce, HubSpot, and Slack.'",
+    "contract_text": "Section 10.1 Integrations: The Platform provides a Salesforce integration."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "INTEGRATION",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Salesforce, HubSpot, Slack integrations",
+        "source": "sales_conversation",
+        "evidence": "We integrate with Salesforce, HubSpot, and Slack."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "INTEGRATION",
+        "statement": "Salesforce integration",
+        "source": "contract_text",
+        "evidence": "The Platform provides a Salesforce integration."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "PARTIAL",
+        "status": "PARTIALLY_MATCHED",
+        "confidence": 0.88,
+        "reasoning": "Only Salesforce contracted; HubSpot + Slack missing."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

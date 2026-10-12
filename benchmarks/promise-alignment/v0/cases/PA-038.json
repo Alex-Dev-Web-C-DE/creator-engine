@@ -1,0 +1,26 @@
+{
+  "case_id": "PA-038",
+  "category": "NO_PROMISE",
+  "description": "General product tour, no commitments",
+  "source_documents": {
+    "sales_conversation": "Customer: 'Interesting. Tell me about your company.' Sales: 'We were founded in 2015 and have 200 employees across three offices.'",
+    "contract_text": "Section 1.1 Parties: This agreement is between Vendor and Customer."
+  },
+  "expected": {
+    "promises": [],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "OTHER",
+        "statement": "Agreement between Vendor and Customer",
+        "source": "contract_text",
+        "evidence": "This agreement is between Vendor and Customer."
+      }
+    ],
+    "alignments": [],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

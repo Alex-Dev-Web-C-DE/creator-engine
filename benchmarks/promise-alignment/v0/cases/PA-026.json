@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-026",
+  "category": "SYNONYM_MATCH",
+  "description": "Synonym: downtime vs unavailability",
+  "source_documents": {
+    "sales_conversation": "Customer: 'What uptime do you offer?' Sales: 'We will keep downtime under 0.1% per month.'",
+    "contract_text": "Section 6.2 Availability: Service unavailability shall not exceed 0.1% monthly."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "AVAILABILITY",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Downtime under 0.1% per month",
+        "source": "sales_conversation",
+        "evidence": "We will keep downtime under 0.1% per month."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "AVAILABILITY",
+        "statement": "Unavailability not exceeding 0.1% monthly",
+        "source": "contract_text",
+        "evidence": "Service unavailability shall not exceed 0.1% monthly."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "EXACT",
+        "status": "MATCHED",
+        "confidence": 0.94,
+        "reasoning": "downtime = unavailability (synonyms)."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

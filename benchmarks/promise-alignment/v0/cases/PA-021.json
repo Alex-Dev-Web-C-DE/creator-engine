@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-021",
+  "category": "EXACT_MATCH",
+  "description": "Percentage discount exact match",
+  "source_documents": {
+    "sales_conversation": "Customer: 'What discount do we get on bulk?' Sales: 'We will give you a 15% discount on orders over 10,000 units.'",
+    "contract_text": "Section 4.2 Pricing: Vendor shall apply a 15% discount for orders exceeding 10,000 units."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "PRICE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "15% discount on orders over 10,000 units",
+        "source": "sales_conversation",
+        "evidence": "We will give you a 15% discount on orders over 10,000 units."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "PRICE",
+        "statement": "15% discount for orders exceeding 10,000 units",
+        "source": "contract_text",
+        "evidence": "Vendor shall apply a 15% discount for orders exceeding 10,000 units."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "EXACT",
+        "status": "MATCHED",
+        "confidence": 0.97,
+        "reasoning": "Both specify 15% discount at 10,000+ units."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

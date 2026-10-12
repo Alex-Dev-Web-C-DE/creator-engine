@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-024",
+  "category": "SYNONYM_MATCH",
+  "description": "Synonym: users vs seats",
+  "source_documents": {
+    "sales_conversation": "Customer: 'How many users can we onboard?' Sales: 'You will get 25 users on this plan.'",
+    "contract_text": "Section 2.1 License: Customer is granted 25 named seats."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "QUANTITY",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "25 users on this plan",
+        "source": "sales_conversation",
+        "evidence": "You will get 25 users on this plan."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "QUANTITY",
+        "statement": "25 named seats",
+        "source": "contract_text",
+        "evidence": "Customer is granted 25 named seats."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "EXACT",
+        "status": "MATCHED",
+        "confidence": 0.92,
+        "reasoning": "users = named seats (synonyms in SaaS context)."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

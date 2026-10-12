@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-048",
+  "category": "MATCHED",
+  "description": "N:1 — multiple features to one platform term",
+  "source_documents": {
+    "sales_conversation": "Customer: 'What features are included?' Sales: 'You get dashboards, reports, and alerts.'",
+    "contract_text": "Section 3.1 Analytics Module: The Platform includes a full analytics suite."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "FEATURE",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Dashboards, reports, alerts",
+        "source": "sales_conversation",
+        "evidence": "You get dashboards, reports, and alerts."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "FEATURE",
+        "statement": "Full analytics suite",
+        "source": "contract_text",
+        "evidence": "The Platform includes a full analytics suite."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "IMPLIED",
+        "status": "MATCHED",
+        "confidence": 0.83,
+        "reasoning": "All 3 features implied by \"analytics suite\"."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}

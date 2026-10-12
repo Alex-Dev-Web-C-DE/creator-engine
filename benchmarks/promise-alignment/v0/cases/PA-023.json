@@ -1,0 +1,45 @@
+{
+  "case_id": "PA-023",
+  "category": "EXACT_MATCH",
+  "description": "Data retention exact match",
+  "source_documents": {
+    "sales_conversation": "Customer: 'How long do you keep our data after termination?' Sales: 'We will retain your data for 90 days after termination for export.'",
+    "contract_text": "Section 7.3 Data Retention: Vendor shall retain Customer data for 90 days following termination, available for export."
+  },
+  "expected": {
+    "promises": [
+      {
+        "promise_id": "PROM-001",
+        "type": "PROCESS",
+        "status": "EXPLICIT_COMMITMENT",
+        "statement": "Retain data for 90 days after termination",
+        "source": "sales_conversation",
+        "evidence": "We will retain your data for 90 days after termination for export."
+      }
+    ],
+    "contract_terms": [
+      {
+        "term_id": "TERM-001",
+        "type": "PROCESS",
+        "statement": "Retain Customer data for 90 days following termination",
+        "source": "contract_text",
+        "evidence": "Vendor shall retain Customer data for 90 days following termination, available for export."
+      }
+    ],
+    "alignments": [
+      {
+        "alignment_id": "ALIGN-001",
+        "promise_id": "PROM-001",
+        "term_id": "TERM-001",
+        "relationship": "EXACT",
+        "status": "MATCHED",
+        "confidence": 0.95,
+        "reasoning": "Both specify 90-day post-termination retention with export."
+      }
+    ],
+    "invariants_checked": [
+      "INV-001: passed",
+      "INV-003: passed"
+    ]
+  }
+}
