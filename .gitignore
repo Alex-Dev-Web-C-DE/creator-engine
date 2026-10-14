@@ -3,4 +3,5 @@ node_modules/
 .env.local
 *.log
 dist/
-benchmarks/promise-alignment/v0/reports/
+benchmarks/promise-alignment/v0/reports/mcp-publisher.exe
+server.json

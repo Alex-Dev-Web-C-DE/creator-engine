@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Alex-Dev-Web-C-DE/creator-engine-mcp",
+  "description": "Promise extraction and alignment from contracts, NDAs, and legal documents.",
+  "version": "0.5.0",
+  "title": "Creator Engine",
+  "websiteUrl": "https://jsonexlab.com/creator-engine/",
+  "repository": {
+    "source": "github",
+    "url": "https://github.com/Alex-Dev-Web-C-DE/creator-engine"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://creator-engine.mcpize.run/mcp"
+    }
+  ]
+}
